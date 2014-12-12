@@ -17,14 +17,12 @@
         <div id="output">
         </div>
         <script id="chat-template" type="text/x-handlebars-template">
-          {{#each messages}}
-        <div class="media user-chat">
-          <img src="" alt="" class="img-responsive img-circle">
-          <div class="media-body">
-            {{this}}
+          <div class="media user-chat">
+            <img src="" alt="" class="img-responsive img-circle">
+            <div class="media-body">
+              {{msg}}
+            </div>
           </div>
-        </div>
-        {{/each}}
         </script>
       </div>
     </div>
