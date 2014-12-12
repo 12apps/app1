@@ -5,15 +5,12 @@ var template = Handlebars.compile(source);
 
 var messages = [];
 
-function refresh() {
-  $("#output").html(template({ messages: messages }));
-    var objDiv = document.getElementById("chat");
-objDiv.scrollTop = objDiv.scrollHeight;
-
 var userName;
 
 function addMessage(message) {
   $("#output").append(template(message));
+  var objDiv = document.getElementById("chat");
+  objDiv.scrollTop = objDiv.scrollHeight;
 }
 
 function sendChatMessage() {
@@ -21,8 +18,6 @@ function sendChatMessage() {
   console.log(msg);
   socket.emit('chat message', userName + ": " + msg);
   $("#chatBoxMessage").val("");
-
-
 }
 
 $("#chatButton").on("click", sendChatMessage);

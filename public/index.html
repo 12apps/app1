@@ -17,31 +17,30 @@
         <div id="output">
         </div>
         <script id="chat-template" type="text/x-handlebars-template">
-          {{#each messages}}
-        <div class="media user-chat">
-          <div class="media-body">
-            {{msg}}
+          <div class="media user-chat">
+            <div class="media-body">
+              {{msg}}
+            </div>
           </div>
+        </script>
+      </div>
+      <div class="form-group chat-input text-center">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Chat!" id="chatBoxMessage">
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-success chat-btn" id="chatButton"><i class="fa fa-comment"></i> Send</button>
+          </span>
         </div>
-      </script>
-    </div>
-    <div class="form-group chat-input text-center">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Chat!" id="chatBoxMessage">
-        <span class="input-group-btn">
-          <button type="button" class="btn btn-success chat-btn" id="chatButton"><i class="fa fa-comment"></i> Send</button>
-        </span>
       </div>
     </div>
-  </div>
-  <footer>
-    <div class="text-center text-muted">
-      App1 of 12AppsOfXmas, A project by CodingHouse 2014 Winter Cohort
-    </div>
-  </footer>
-  <script src="https://cdn.socket.io/socket.io-1.2.1.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>
-  <script src="/javascripts/main.js"></script>
-</body>
+    <footer>
+      <div class="text-center text-muted">
+        App1 of 12AppsOfXmas, A project by CodingHouse 2014 Winter Cohort
+      </div>
+    </footer>
+    <script src="https://cdn.socket.io/socket.io-1.2.1.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>
+    <script src="/javascripts/main.js"></script>
+  </body>
 </html>
