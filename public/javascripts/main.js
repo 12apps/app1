@@ -4,6 +4,7 @@ var source = $("#chat-template").html();
 var template = Handlebars.compile(source);
 
 var messages = [];
+var userName;
 
 function refresh() {
   $("#output").html(template({ messages: messages }));
@@ -14,7 +15,7 @@ refresh();
 function sendChatMessage() {
   var msg = $("#chatBoxMessage").val();
   console.log(msg);
-  socket.emit('chat message', msg);
+  socket.emit('chat message', userName + ": " + msg);
   $("#chatBoxMessage").val("");
 }
 
@@ -24,4 +25,9 @@ socket.on('chat message', function(response){
   console.log('client message: ', response);
   messages.push(response.msg);
   refresh();
+});
+
+socket.on('userName', function(name){
+  userName = name;
+  console.log(userName);
 });
