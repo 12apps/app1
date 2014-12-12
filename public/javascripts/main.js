@@ -8,9 +8,10 @@ var userName;
 
 function refresh() {
   $("#output").html(template({ messages: messages }));
-}
 
-refresh();
+  function addMessage(message) {
+  $("#output").append(template(message));
+}
 
 function sendChatMessage() {
   var msg = $("#chatBoxMessage").val();
@@ -22,9 +23,7 @@ function sendChatMessage() {
 $("#chatButton").on("click", sendChatMessage);
 
 socket.on('chat message', function(response){
-  console.log('client message: ', response);
-  messages.push(response.msg);
-  refresh();
+  addMessage(response);
 });
 
 socket.on('userName', function(name){
