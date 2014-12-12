@@ -1,19 +1,27 @@
-console.log(angular);
-
 var socket = io();
 
-var chatApp = angular.module("chat", []);
+var source = $("#chat-template").html();
+var template = Handlebars.compile(source);
 
-chatApp.controller("MainController", function() {
-  var controller = this;
-  controller.messages = [];
-  controller.sendChatMessage = function() {
-    var msg = controller.chatBoxMessage;
-    controller.messages.push(msg);
-    socket.emit('chat message', msg);
-  }
+var messages = [];
 
-  socket.on('chat message', function(msg){
-    controller.messages.push(msg);
-  });
+function refresh() {
+  $("#output").html(template({ messages: messages }));
+}
+
+refresh();
+
+function sendChatMessage() {
+  var msg = $("#chatBoxMessage").val();
+  console.log(msg);
+  socket.emit('chat message', msg);
+  $("#chatBoxMessage").val("");
+}
+
+$("#chatButton").on("click", sendChatMessage);
+
+socket.on('chat message', function(response){
+  console.log('client message: ', response);
+  messages.push(response.msg);
+  refresh();
 });
