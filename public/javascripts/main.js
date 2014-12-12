@@ -6,10 +6,7 @@ var template = Handlebars.compile(source);
 var messages = [];
 var userName;
 
-function refresh() {
-  $("#output").html(template({ messages: messages }));
-
-  function addMessage(message) {
+function addMessage(message) {
   $("#output").append(template(message));
 }
 
