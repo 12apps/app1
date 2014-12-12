@@ -27,7 +27,7 @@ body {
    border-top-right-radius: 0.6em;
 }
 .chat-area {
-   background: white;
+   background: url(../images/speech-bubble.png) no-repeat bottom right #fff;
    height: 30em;
    padding: 0.5em;
    border-bottom-left-radius: 0.6em;
@@ -40,19 +40,11 @@ width: 90%;
 vertical-align: middle;
 }
 
-.chat-btn {
-   margin-top: 0.6em;
-}
-
 .user-chat {
    /*border-bottom: 5px solid #353f48;*/
-   font-size: 0.9em;
+   
    padding: 1em;
-   font-weight: 600;
-   vertical-align: middle;
-   background: white;
-   border-radius: 0.5em;
-   color: #353f48;
+
 }
 
 .user-chat img {
@@ -64,10 +56,17 @@ vertical-align: middle;
 
 message-author {
   font-size: 1.2em;
-  color: blue;
+  color: #5cb85c;
 }
 
 message-time {
   color: #666;
   display: block;
+  font-size: 0.9em;
+}
+
+message-body {
+  font-size: 1.2em;
+  font-weight: 600;
+  color: black;
 }
