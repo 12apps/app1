@@ -5,23 +5,31 @@ var template = Handlebars.compile(source);
 
 var messages = [];
 
-function refresh() {
-  $("#output").html(template({ messages: messages }));
+var userName;
+
+function addMessage(message) {
+  $("#output").append(template(message));
+  var objDiv = document.getElementById("chat");
+  objDiv.scrollTop = objDiv.scrollHeight;
 }
 
-refresh();
-
 function sendChatMessage() {
-  var msg = $("#chatBoxMessage").val();
-  console.log(msg);
-  socket.emit('chat message', msg);
+  var messageBody = $("#chatBoxMessage").val();
+  socket.emit('chat message', { author: userName, body: messageBody });
   $("#chatBoxMessage").val("");
 }
 
 $("#chatButton").on("click", sendChatMessage);
 
 socket.on('chat message', function(response){
-  console.log('client message: ', response);
-  messages.push(response.msg);
-  refresh();
+  addMessage(response);
+});
+
+socket.on('userName', function(name){
+  userName = name;
+  console.log(userName);
+});
+
+Handlebars.registerHelper('format', function(date) {
+  return moment(date).format("dddd, MMMM Do YYYY, h:mm:ss a");
 });

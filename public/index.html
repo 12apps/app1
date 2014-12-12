@@ -13,47 +13,37 @@
   <div class="container">
     <div class="col-md-8">
       <div class="chat-title">Chat title</div>
-      <div class="chat-area">
+      <div id="chat" class="chat-area" >
         <div id="output">
         </div>
         <script id="chat-template" type="text/x-handlebars-template">
-          {{#each messages}}
-        <div class="media user-chat">
-          <img src="" alt="" class="img-responsive img-circle">
-          <div class="media-body">
-            {{this}}
+          <div class="media user-chat">
+            <div class="media-body">
+              <message-author>{{author}}</message-author>
+              <message-body>{{body}}</message-body>
+              <message-time>{{format date}}</message-time>
+            </div>
           </div>
-        </div>
-        {{/each}}
         </script>
       </div>
-    </div>
-    <div class="col-md-4 hidden-xs hidden-sm">
-      <div class="chat-title">Users</div>
-      <div class="user-box">
-        <ul class="list-unstyled">
-          <li>Ryan Janvier</li>
-          <li>Not Ryan Janvier</li>
-          <li>Other Ryan</li>
-          <li>Phillip Wright</li>
-        </ul>
+      <div class="form-group chat-input text-center">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Chat!" id="chatBoxMessage">
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-success chat-btn" id="chatButton"><i class="fa fa-comment"></i> Send</button>
+          </span>
+        </div>
       </div>
     </div>
-    <div class="col-md-12">
-      <div class="form-group chat-input form-inline">
-        <input type="text" class="form-control" placeholder="Chat!" id="chatBoxMessage">
-        <button type="button" class="btn btn-success" id="chatButton">Send</button>
+    <footer>
+      <div class="text-center text-muted">
+        App1 of 12AppsOfXmas, A project by CodingHouse 2014 Winter Cohort
       </div>
-    </div>
-  </div>
-  <footer>
-    <div class="text-center text-muted">
-      App1 of 12AppsOfXmas, A project by CodingHouse 2014 Winter Cohort
-    </div>
-  </footer>
-  <script src="https://cdn.socket.io/socket.io-1.2.1.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>
-  <script src="/javascripts/main.js"></script>
-</body>
+    </footer>
+    <script src="https://cdn.socket.io/socket.io-1.2.1.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+    <script src="/javascripts/main.js"></script>
+  </body>
 </html>

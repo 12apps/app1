@@ -61,3 +61,13 @@ vertical-align: middle;
    float: left;
    margin: 0 1em;
 }
+
+message-author {
+  font-size: 1.2em;
+  color: blue;
+}
+
+message-time {
+  color: #666;
+  display: block;
+}
