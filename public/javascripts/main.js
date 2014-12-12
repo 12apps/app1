@@ -4,22 +4,22 @@ var source = $("#chat-template").html();
 var template = Handlebars.compile(source);
 
 var messages = [];
-$(function(){
-})
 
 function refresh() {
   $("#output").html(template({ messages: messages }));
     var objDiv = document.getElementById("chat");
 objDiv.scrollTop = objDiv.scrollHeight;
 
-}
+var userName;
 
-refresh();
+function addMessage(message) {
+  $("#output").append(template(message));
+}
 
 function sendChatMessage() {
   var msg = $("#chatBoxMessage").val();
   console.log(msg);
-  socket.emit('chat message', msg);
+  socket.emit('chat message', userName + ": " + msg);
   $("#chatBoxMessage").val("");
 
 
@@ -28,7 +28,10 @@ function sendChatMessage() {
 $("#chatButton").on("click", sendChatMessage);
 
 socket.on('chat message', function(response){
-  console.log('client message: ', response);
-  messages.push(response.msg);
-  refresh();
+  addMessage(response);
+});
+
+socket.on('userName', function(name){
+  userName = name;
+  console.log(userName);
 });

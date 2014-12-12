@@ -19,30 +19,18 @@
         <script id="chat-template" type="text/x-handlebars-template">
           {{#each messages}}
         <div class="media user-chat">
-          <img src="" alt="" class="img-responsive img-circle">
           <div class="media-body">
-            {{this}}
+            {{msg}}
           </div>
         </div>
-        {{/each}}
-        </script>
-      </div>
+      </script>
     </div>
-    <div class="col-md-4 hidden-xs hidden-sm">
-      <div class="chat-title">Users</div>
-      <div class="user-box">
-        <ul class="list-unstyled">
-          <li>Ryan Janvier</li>
-          <li>Not Ryan Janvier</li>
-          <li>Other Ryan</li>
-          <li>Phillip Wright</li>
-        </ul>
-      </div>
-    </div>
-    <div class="col-md-12">
-      <div class="form-group chat-input form-inline">
+    <div class="form-group chat-input text-center">
+      <div class="input-group">
         <input type="text" class="form-control" placeholder="Chat!" id="chatBoxMessage">
-        <button type="button" class="btn btn-success" id="chatButton">Send</button>
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-success chat-btn" id="chatButton"><i class="fa fa-comment"></i> Send</button>
+        </span>
       </div>
     </div>
   </div>
