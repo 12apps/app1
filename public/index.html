@@ -19,7 +19,9 @@
         <script id="chat-template" type="text/x-handlebars-template">
           <div class="media user-chat">
             <div class="media-body">
-              {{msg}}
+              <message-author>{{author}}</message-author>
+              <message-body>{{body}}</message-body>
+              <message-time>{{format date}}</message-time>
             </div>
           </div>
         </script>
@@ -41,6 +43,7 @@
     <script src="https://cdn.socket.io/socket.io-1.2.1.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
     <script src="/javascripts/main.js"></script>
   </body>
 </html>

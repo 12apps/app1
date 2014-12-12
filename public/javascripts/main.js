@@ -14,9 +14,8 @@ function addMessage(message) {
 }
 
 function sendChatMessage() {
-  var msg = $("#chatBoxMessage").val();
-  console.log(msg);
-  socket.emit('chat message', userName + ": " + msg);
+  var messageBody = $("#chatBoxMessage").val();
+  socket.emit('chat message', { author: userName, body: messageBody });
   $("#chatBoxMessage").val("");
 }
 
@@ -29,4 +28,8 @@ socket.on('chat message', function(response){
 socket.on('userName', function(name){
   userName = name;
   console.log(userName);
+});
+
+Handlebars.registerHelper('format', function(date) {
+  return moment(date).format("dddd, MMMM Do YYYY, h:mm:ss a");
 });
