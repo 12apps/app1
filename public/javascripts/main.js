@@ -4,9 +4,14 @@ var source = $("#chat-template").html();
 var template = Handlebars.compile(source);
 
 var messages = [];
+$(function(){
+})
 
 function refresh() {
   $("#output").html(template({ messages: messages }));
+    var objDiv = document.getElementById("chat");
+objDiv.scrollTop = objDiv.scrollHeight;
+
 }
 
 refresh();
@@ -16,6 +21,8 @@ function sendChatMessage() {
   console.log(msg);
   socket.emit('chat message', msg);
   $("#chatBoxMessage").val("");
+
+
 }
 
 $("#chatButton").on("click", sendChatMessage);
